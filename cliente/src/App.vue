@@ -191,6 +191,7 @@ export default {
     checkFormC() {
       try{
         bookService.save(this.book);
+        window.location.reload();
       } catch(err) {
         console.error(err);
       }
@@ -198,6 +199,7 @@ export default {
     checkFormU() {
       try{
         bookService.updateBook(this.bookU);
+        window.location.reload();
       } catch(err) {
         console.error(err);
       }
