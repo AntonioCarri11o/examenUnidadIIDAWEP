@@ -134,6 +134,10 @@
       ></div> 
     </div>
     <div class="content-principal">
+      <div class="w-100 d-flex justify-content-start my-4">
+        <b-button variant="primary mx-2" @click="list('orderAutorByAsc/')">Ordenar por autor</b-button>
+        <b-button variant="primary mx-2">Ordenar por fecha</b-button>
+      </div>
       <div class="card-container row mx-auto my-2"
       @dragover.prevent
       @dragenter.prevent
@@ -179,11 +183,12 @@ export default {
         autor: null,
         publishDate: null,
         imageURL: null
-      }
+      },
+      endpoint: ""
     }
   },
   mounted() {
-    this.list();
+    this.list("");
   },
   components: {
   },
@@ -231,9 +236,9 @@ export default {
     cancelD() {
       this.dBook = null;
     },
-    async list() {
+    async list(endpoint) {
       try {
-        const response = await bookService.list();
+        const response = await bookService.list(endpoint);
         this.books = response.data;
       } catch(err) {
         throw(err);
