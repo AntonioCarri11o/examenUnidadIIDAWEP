@@ -197,7 +197,7 @@ export default {
     },
     checkFormU() {
       try{
-        bookService.update(this.bookU);
+        bookService.updateBook(this.bookU);
       } catch(err) {
         console.error(err);
       }

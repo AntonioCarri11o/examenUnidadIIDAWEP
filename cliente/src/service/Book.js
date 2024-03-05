@@ -28,9 +28,9 @@ const save = async (payload) => {
     }
 }
 
-const update = async (payload) => {
+const updateBook = async (payload) => {
     try {
-        const response = await axios.update(`${API_URL}/books/`, payload);
+        const response = await axios.put(`${API_URL}/books/`, payload);
     } catch(err) {
         throw(err);
     }
@@ -48,6 +48,6 @@ export default {
     list,
     deleteBook,
     save,
-    update,
+    updateBook,
     getById,
 }
