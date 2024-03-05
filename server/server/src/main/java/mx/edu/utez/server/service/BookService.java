@@ -27,6 +27,10 @@ public class BookService {
                 "OK"
         );
     }
+    @Transactional(readOnly = true)
+    public CustomResponse<Optional<Book>> getById(Long id) {
+        return new CustomResponse<Optional<Book>>(this.repository.findById(id), false,200, "OK");
+    }
 
     @Transactional(rollbackFor = {SQLException.class})
     public CustomResponse<Book> insert(Book book){

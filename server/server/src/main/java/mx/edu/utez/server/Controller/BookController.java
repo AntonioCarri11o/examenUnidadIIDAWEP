@@ -26,6 +26,14 @@ public class BookController {
         );
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Book> getById(@PathVariable Long id) {
+        return new ResponseEntity(
+                this.service.getById(id),
+                HttpStatus.OK
+        );      
+    }
+
     @GetMapping("/orderAutorByAsc/")
     public ResponseEntity<List<Book>> finbyAutorAsc() {
         return new ResponseEntity(
@@ -68,7 +76,7 @@ public class BookController {
         );
     }
 
-    @DeleteMapping("/book/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity<CustomResponse<Book>> delete(@PathVariable Long id) {
         return new ResponseEntity<>(
                 this.service.delete(id),
